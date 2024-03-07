@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="pri"></h1>
+</body>
+<script>
+    const prom = new Promise(function(myresolve,myreject){
+            let num = Math.random(4);
+            setTimeout(function(){
+                if(num<0.2){
+                    myresolve("it the number"+num);
+                }
+                else{
+                    myreject("its not the number,"+num);
+                }
+            },3000);
+
+    });
+    prom.then(function(value){
+      document.getElementById("pri").innerHTML=value;
+    }).catch(function(error){
+        document.getElementById("pri").innerHTML=error;
+    })
+</script>
+</html>
